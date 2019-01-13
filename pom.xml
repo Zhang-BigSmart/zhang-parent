@@ -95,6 +95,7 @@
 
     <modules>
         <module>zhang-practice</module>
+        <module>zhang-spring-cloud-learning</module>
     </modules>
 
     <dependencyManagement>
