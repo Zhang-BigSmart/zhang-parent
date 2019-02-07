@@ -40,6 +40,7 @@
         <module>zhang-practice-elasticjob</module>
         <module>zhang-practice-thread</module>
         <module>zhang-spring-cloud-learning</module>
+        <module>zhang-practice-offer</module>
     </modules>
 
 </project>
