@@ -41,6 +41,8 @@
         <module>zhang-practice-thread</module>
         <module>zhang-spring-cloud-learning</module>
         <module>zhang-practice-offer</module>
+        <module>zhang-practice-netty</module>
+        <module>zhang-practice-rocketmq</module>
     </modules>
 
 </project>
