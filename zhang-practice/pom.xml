@@ -43,6 +43,7 @@
         <module>zhang-practice-offer</module>
         <module>zhang-practice-netty</module>
         <module>zhang-practice-rocketmq</module>
+        <module>zhang-practice-es</module>
     </modules>
 
 </project>
