@@ -25,6 +25,5 @@ public class IndexTest extends BaseTest {
         System.out.println("查询结果type："+res.getType());
         System.out.println("查询结果id："+res.getId());
         System.out.println("查询结果source："+res.getSource());
-
     }
 }
