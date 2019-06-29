@@ -1,6 +1,5 @@
 package com.zhang.practice.leetcode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,32 +26,30 @@ public class ThreeSum {
     public List<List<Integer>> threeSum(int[] num) {
         Arrays.sort(num);
         List<List<Integer>> res = new LinkedList<>();
-        int len = num.length;
-        int left = num[0], right = num[len - 1];
-        int leftPos = 0, rightPos = len - 1;
-        int leftPos_ = 1, rightPos_ = len - 2;
-        for (int i = 0; i < len; i++) {
-            if (left + right > 0) {
-                while(num[rightPos_] > 0) {
-                    if (left + right + num[rightPos_] == 0) {
-                        res.add(Arrays.asList(left, right, num[rightPos_]));
+        for (int i = 0; i < num.length - 1; i++) {
+            if (i == 0 || (i > 0 && num[i] != num[i - 1])) {
+                int lo = i + 1, hi = num.length - 1, sum = 0 - num[i];
+                while (lo < hi) {
+                    if (num[lo] + num[hi] == sum) {
+                        res.add(Arrays.asList(num[i], num[lo], num[hi]));
+                        while (lo < hi && num[lo] == num[lo+1]) lo++;
+                        while (lo < hi && num[hi] == num[hi-1]) hi++;
+                        lo++; hi++;
+                    }else if (num[lo] + num[hi] < sum) {
+                        lo++;
                     }else {
-
+                        hi--;
                     }
                 }
             }
-            else if (left + right < 0) {
 
-            }else {
-
-            }
         }
         return res;
     }
 
     public static void main(String[] args) {
         ThreeSum threeSum = new ThreeSum();
-        int[] nums = {-1, -1, 0, 1, 4};
+        int[] nums = {-4, -1, -1, 0, 1, 2};
         threeSum.threeSum(nums);
     }
 
