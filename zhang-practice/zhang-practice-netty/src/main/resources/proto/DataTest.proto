@@ -1,0 +1,20 @@
+syntax ="proto2";
+
+package com.zhang.practice.netty.chapter3.model;
+
+//optimize_for 加快解析的速度
+option optimize_for = SPEED;
+option java_package = "com.zhang.practice.netty.chapter3.model";
+option java_outer_classname="DataTest";
+
+message RequestUser{
+optional string user_name = 1;
+optional int32 age = 2;
+optional string password = 3;
+}
+
+message ResponseBank{
+optional string bank_no = 1;
+optional double money = 2;
+optional string bank_name=3;
+}

@@ -33,7 +33,6 @@ public class TimeClient {
                     });
             // 发起异步1连接操作
             ChannelFuture f = b.connect(host, port).sync();
-
             // 等待客户端链路关闭
             f.channel().closeFuture().sync();
         } finally {
