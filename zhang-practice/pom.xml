@@ -44,6 +44,7 @@
         <module>zhang-practice-netty</module>
         <module>zhang-practice-rocketmq</module>
         <module>zhang-practice-es</module>
+        <module>zhang-practice-kafka</module>
     </modules>
 
 </project>
