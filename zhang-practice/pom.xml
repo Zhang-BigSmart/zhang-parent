@@ -45,6 +45,7 @@
         <module>zhang-practice-rocketmq</module>
         <module>zhang-practice-es</module>
         <module>zhang-practice-kafka</module>
+        <module>zhang-practice-hadoop</module>
     </modules>
 
 </project>
