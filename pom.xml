@@ -95,6 +95,8 @@
 
     <modules>
         <module>zhang-practice</module>
+        <module>zhang-practice-spark</module>
+        <module>zhang-practice/zhang-practice-spark</module>
     </modules>
 
     <dependencyManagement>
