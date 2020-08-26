@@ -55,5 +55,7 @@ public class App {
 
 		System.out.println("平均每个线程整体花费时间： " +wholeTime/wholeTimeList.size());
 		System.out.println("平均每个线程执行花费时间： " +runTime/runTimeList.size());
+
+		System.out.println("test");
 	}
 }
