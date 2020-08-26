@@ -5,7 +5,7 @@ package com.zhang.practice.thread.copy;
  * create at:  2020/5/29
  * @description:
  */
-public class ShallowCopy {
+public class DeepCopy {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         Teacher teacher = new Teacher(30, "Miss.Yang");

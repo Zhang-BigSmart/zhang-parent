@@ -1,14 +1,9 @@
-package com.demo.threadpoolsize;
+package com.zhang.practice.thread.pool.test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 
 /**
  * Hello world!
@@ -17,13 +12,12 @@ import java.util.concurrent.TimeoutException;
 public class App {
 
 	// 初始化线程池
-	private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+	private static ThreadPoolExecutor threadPool = new TestThreadPoll(
 			8,
 			8,
-			10,
+			1000,
 			TimeUnit.SECONDS,
-			new ArrayBlockingQueue<Runnable>(1000),
-			new ThreadPoolExecutor.DiscardOldestPolicy());
+			new ArrayBlockingQueue<Runnable>(1000));
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 		

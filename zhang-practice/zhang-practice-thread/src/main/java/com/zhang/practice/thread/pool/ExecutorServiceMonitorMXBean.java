@@ -6,4 +6,18 @@ package com.zhang.practice.thread.pool;
  * @description:
  */
 public interface ExecutorServiceMonitorMXBean {
+
+    double getRequestPerSecondRetirementRate();
+
+    double getAverageServiceTime();
+
+    double getAverageTimeWaitingInPool();
+
+    double getAverageResponseTime();
+
+    double getEstimatedAverageNumberOfActiveRequests();
+
+    double getRatioOfDeadTimeToResponseTime();
+
+    double v();
 }

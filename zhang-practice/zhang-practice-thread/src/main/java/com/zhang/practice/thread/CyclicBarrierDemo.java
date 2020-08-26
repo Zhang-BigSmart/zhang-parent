@@ -12,7 +12,6 @@ public class CyclicBarrierDemo {
         CyclicBarrier cyclic = new CyclicBarrier(N, new BarrierRun(flag, N));
         System.out.println("开始点名");
         for (int i = 0; i < N; i++) {
-            System.out.println("学生" + i + " 到");
             threads[i] = new Thread(new Student(cyclic, i));
             threads[i].start();
         }
@@ -34,6 +33,7 @@ class Student implements Runnable {
     public void run() {
         // 等待所有学生到齐
         try {
+            System.out.println("学生" + i + " 到");
             cyclic.await();
             doWork();
             cyclic.await();

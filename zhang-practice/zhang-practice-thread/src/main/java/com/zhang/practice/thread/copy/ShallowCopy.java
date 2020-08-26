@@ -5,29 +5,22 @@ package com.zhang.practice.thread.copy;
  * create at:  2020/5/29
  * @description:
  */
-public class Main {
+public class ShallowCopy {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         Teacher teacher = new Teacher(30, "Miss.Yang");
 
-        Student s1 = new Student(2, "xiaoming", 1, teacher);
+        Student s1 = new Student(18, "edison", 1, teacher);
 
         Student s2 = (Student) s1.clone();
+        s1.setAge(20);
+        s1.setRange(100);
+        s1.setName("Alic");
 
-        Student s3 = s1;
-
-        s1.setAge(22);
-        s3.setRange(101);
-
-        s2.setName("alic");
-
-        s3.setName("edison");
-
-        s1.getTeacher().setName("www");
+        s1.getTeacher().setName("Mr.Zhang");
 
         System.out.println(s1);
         System.out.println(s2);
-        System.out.println(s3);
 
     }
 }

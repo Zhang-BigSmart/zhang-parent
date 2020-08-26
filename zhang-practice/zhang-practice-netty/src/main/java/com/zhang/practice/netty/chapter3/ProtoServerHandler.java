@@ -13,6 +13,7 @@ public class ProtoServerHandler extends SimpleChannelInboundHandler<DataTest.Req
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataTest.RequestUser msg) throws Exception {
+        DataTest.RequestUser.parseFrom(msg.get);
         System.out.println(msg.getUserName());
         System.out.println(msg.getAge());
         System.out.println(msg.getPassword());

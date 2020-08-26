@@ -6,4 +6,7 @@ package com.zhang.practice.thread.pool;
  * @description:
  */
 public interface QueueSamplerMXBean {
+
+    QueueSample getQueueSample();
+    void clearQueue();
 }
