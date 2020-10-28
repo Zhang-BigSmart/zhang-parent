@@ -7,5 +7,7 @@ package com.zhang.practice.rocketmq;
  */
 public class Test {
 
-
+    class A {
+        private int age;
+    }
 }
