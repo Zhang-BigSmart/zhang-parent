@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.pool.test;
+package com.zhang.practice.thread.jmx.pool.test;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.pool;
+package com.zhang.practice.thread.jmx.pool;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;

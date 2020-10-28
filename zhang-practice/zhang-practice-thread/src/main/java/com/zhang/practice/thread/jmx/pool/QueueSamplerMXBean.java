@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.pool;
+package com.zhang.practice.thread.jmx.pool;
 
 /**
  * @author : zzh
@@ -8,5 +8,9 @@ package com.zhang.practice.thread.pool;
 public interface QueueSamplerMXBean {
 
     QueueSample getQueueSample();
+
     void clearQueue();
+
+    void addQueue(String element);
+
 }

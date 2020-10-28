@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.pool;
+package com.zhang.practice.thread.jmx.pool;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
@@ -30,11 +30,10 @@ public class PoolMain {
 
 
     public static void main(String[] args) throws Exception {
-        MBeanServer mbs =
-                ManagementFactory.getPlatformMBeanServer();
+        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 
         ObjectName mxbeanName = new ObjectName("com.zhang.practice.thread.pool:type=QueueSampler");
-        Queue<String> queue = new ArrayBlockingQueue<String>(10);
+        Queue<String> queue = new ArrayBlockingQueue<>(10);
         queue.add("Request-1");
         queue.add("Request-2");
         queue.add("Request-3");
