@@ -10,4 +10,8 @@ public class Test {
     class A {
         private int age;
     }
+
+    class B {
+        private String name;
+    }
 }
