@@ -1,4 +1,4 @@
-package com.zhang.practice.leetcode;
+package com.zhang.practice.leetcode.base;
 
 /**
  * @ClassName MaxSubString

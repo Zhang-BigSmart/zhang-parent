@@ -1,4 +1,4 @@
-package com.zhang.practice.leetcode;
+package com.zhang.practice.leetcode.base;
 
 import java.util.Arrays;
 import java.util.LinkedList;
