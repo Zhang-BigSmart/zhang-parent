@@ -38,7 +38,7 @@
 
     <modules>
         <module>zhang-practice-elasticjob</module>
-        <module>zhang-practice-thread</module>
+        <module>zhang-practice-java</module>
         <module>zhang-spring-cloud-learning</module>
         <module>zhang-practice-offer</module>
         <module>zhang-practice-netty</module>
@@ -46,6 +46,7 @@
         <module>zhang-practice-es</module>
         <module>zhang-practice-kafka</module>
         <module>zhang-practice-hadoop</module>
+        <module>zhang-practice-pulsar</module>
     </modules>
 
 </project>
