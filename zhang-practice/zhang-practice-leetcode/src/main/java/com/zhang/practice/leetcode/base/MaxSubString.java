@@ -1,5 +1,8 @@
 package com.zhang.practice.leetcode.base;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @ClassName MaxSubString
  * @Description:
@@ -9,7 +12,6 @@ package com.zhang.practice.leetcode.base;
 public class MaxSubString {
 
     public String solve(String s1, String s2) {
-
         Integer max;
         String bigger = s1;
         if (s1.length() < s2.length()) {

@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.channel;
+package com.zhang.practice.thread.nio.channel;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -21,10 +21,16 @@ public class FileChannelDemo {
 //        channelWrite();
 //        mappedWrite();
 //        mappedRead();
-        ByteBuffer byteBufferRead = ByteBuffer.allocate(1024 * 1024);
+        /*ByteBuffer byteBufferRead = ByteBuffer.allocate(1024 * 1024);
         System.out.println(byteBufferRead.position());
         System.out.println(byteBufferRead.limit());
         System.out.println(byteBufferRead.capacity());
+        System.out.println(byteBufferRead.hasRemaining());*/
+
+        ByteBuffer byteBufferRead = ByteBuffer.allocate(1024 * 1024);
+
+        System.out.println(byteBufferRead.limit());
+        System.out.println(byteBufferRead.position());
         System.out.println(byteBufferRead.hasRemaining());
 
     }
@@ -63,11 +69,14 @@ public class FileChannelDemo {
     }
 
     public static void mappedWrite() throws IOException {
-        String filePath = ClassLoader.getSystemClassLoader().getResource("channel/hello.txt").getPath();
+//        String filePath = ClassLoader.getSystemClassLoader().getResource("channel/hello.txt").getPath();
+        String filePath = "/Users/edison/Documents/git/zhang-parent/zhang-practice/zhang-practice-java/src/main/resources/channel/hello.txt";
+
         try(RandomAccessFile writer = new RandomAccessFile(filePath, "rw");
             FileChannel channel = writer.getChannel()) {
             byte[] content = "mappedWrite!!!".getBytes(StandardCharsets.UTF_8);
-            MappedByteBuffer buff = channel.map(FileChannel.MapMode.READ_WRITE, 0, content.length);
+            MappedByteBuffer buff = channel.map(FileChannel.MapMode.READ_WRITE, 0, 19);
+            buff.position(5);
             buff.put(content);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -75,7 +84,9 @@ public class FileChannelDemo {
     }
 
     public static void mappedRead() throws IOException {
-        String filePath = ClassLoader.getSystemClassLoader().getResource("channel/hello.txt").getPath();
+//        String filePath = ClassLoader.getSystemClassLoader().getResource("channel/hello.txt").getPath();
+        String filePath = "/Users/edison/Documents/git/zhang-parent/zhang-practice/zhang-practice-java/src/main/resources/channel/hello.txt";
+        System.out.println(filePath);
         try(RandomAccessFile reader = new RandomAccessFile(filePath, "r");
             FileChannel channel = reader.getChannel()) {
             System.out.println(channel.size());
