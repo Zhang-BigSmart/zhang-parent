@@ -10,6 +10,12 @@
 job:
   token: 123456
 
+server:
+  servlet:
+    context-path: /
+  port: 8081
+  address: 0.0.0.0
+
 
 logging:
   level:
