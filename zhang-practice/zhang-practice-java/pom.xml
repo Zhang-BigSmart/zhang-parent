@@ -22,6 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <javassist_version>3.20.0-GA</javassist_version>
+        <asm.version>9.0</asm.version>
         <cglib.version>3.3.0</cglib.version>
     </properties>
 
@@ -37,6 +38,13 @@
             <artifactId>cglib</artifactId>
             <version>${cglib.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.google.guava</groupId>

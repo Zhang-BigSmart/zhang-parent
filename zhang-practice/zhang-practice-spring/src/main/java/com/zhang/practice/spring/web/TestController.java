@@ -22,7 +22,7 @@ public class TestController {
         System.out.println("in!!!");
 
         result.setResult(mapper);
-//        result.setCode(200);
+        result.setCode(400);
         result.setMsg("success");
 
         return result;
