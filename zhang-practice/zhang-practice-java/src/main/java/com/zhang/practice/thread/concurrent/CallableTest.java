@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.thread;
+package com.zhang.practice.thread.concurrent;
 
 import java.util.concurrent.*;
 

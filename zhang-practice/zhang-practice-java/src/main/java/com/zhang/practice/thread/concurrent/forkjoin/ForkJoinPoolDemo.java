@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.forkjoin;
+package com.zhang.practice.thread.concurrent.forkjoin;
 
 import java.util.ArrayList;
 import java.util.List;
