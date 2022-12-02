@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class B {
 
 
-    private A a;
+    /*private A a;
 
     @Autowired
     public B(A a) {
@@ -22,5 +22,5 @@ public class B {
     public void logB() {
         System.out.println("log B");
         //a.logA();
-    }
+    }*/
 }

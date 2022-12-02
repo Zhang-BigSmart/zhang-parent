@@ -21,7 +21,7 @@ public class BaseTest {
     @Test
     public void contextLoads() {
         //a.logA();
-        b.logB();
+        //b.logB();
     }
 
 

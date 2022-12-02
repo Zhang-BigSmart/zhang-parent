@@ -23,8 +23,4 @@
             <version>${pulsar-client-version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-
-    </build>
 </project>

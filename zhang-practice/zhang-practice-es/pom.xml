@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.zhang</groupId>
         <artifactId>zhang-practice</artifactId>
-        <version>${zhang.version}</version>
+        <version>1.0.0</version>
     </parent>
 
     <groupId>com.zhang</groupId>

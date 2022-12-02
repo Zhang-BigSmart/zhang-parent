@@ -1,11 +1,16 @@
 package com.zhang.practice.spring.async;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.internal.util.collections.ConcurrentReferenceHashMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -14,43 +19,46 @@ import java.util.Set;
  * create at:  2020/8/6
  * @description:
  */
+@Slf4j
 @RestController
 @RequestMapping("/deferred")
 public class DeferredResultController {
 
-    final Map deferredResultMap = new ConcurrentReferenceHashMap<>();
+    // guava中的Multimap，多值map,对map的增强，一个key可以保持多个value
+    private final Multimap<String, DeferredResult<String>> deferredResultMap = HashMultimap.create();
+    // 超时时间 10s
+    private long DEFAULT_LONG_POLLING_TIMEOUT = 10 * 1000;
 
-    @GetMapping
-    public DeferredResult<Object> pollNotification() {
-        DeferredResult<Object> result = new DeferredResult();
-        deferredResultMap.put(result.hashCode(), result);
-        System.out.println("quest:" + result.hashCode());
+    /**
+     * 模拟监听namespace配置
+     */
+    @GetMapping("/listen")
+    public DeferredResult<String> pollNotification(@RequestParam("namespace") String namespace) {
+        // 创建DeferredResult对象，设置超时时间和超时返回对象
+        DeferredResult<String> result = new DeferredResult<>(DEFAULT_LONG_POLLING_TIMEOUT, "timeout");
+
+        result.onTimeout(() -> log.info("timeout"));
 
         result.onCompletion(() -> {
-            Object object = deferredResultMap.remove(result.hashCode());
-            result.setResult(object);
-            System.err.println("还剩" + deferredResultMap.size() + "个deferredResult未响应");
+            log.info("completion");
+            deferredResultMap.remove(namespace, result);
         });
 
-        /*ForkJoinPool.commonPool().submit(() -> {
-            System.out.println("Processing in separate thread");
-            try {
-                Thread.sleep(6000);
-            } catch (InterruptedException e) {
-            }
-            result.setResult(ResponseEntity.ok("ok"));
-        });*/
+        deferredResultMap.put(namespace, result);
         return result;
     }
 
-
-    @GetMapping("/return")
-    public void returnLongPollingValue() {
-        Set<Map.Entry> entrySet = deferredResultMap.entrySet();
-        System.out.println("set return");
-        for (Map.Entry entry : entrySet) {
-            System.out.println("key:" + entry.getKey());
-            entry.setValue(entry.getKey());
+    /**
+     * 模拟发布namespace配置
+     */
+    @GetMapping(value = "/publish")
+    public Object publishConfig(@RequestParam("namespace") String namespace, @RequestParam("context") String context) {
+        if (deferredResultMap.containsKey(namespace)) {
+            Collection<DeferredResult<String>> deferredResults = deferredResultMap.get(namespace);
+            for (DeferredResult<String> deferredResult : deferredResults) {
+                deferredResult.setResult(context);
+            }
         }
+        return "success";
     }
 }

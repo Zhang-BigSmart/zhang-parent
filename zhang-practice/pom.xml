@@ -5,7 +5,7 @@
 
     <groupId>com.zhang</groupId>
     <artifactId>zhang-practice</artifactId>
-    <version>${zhang.version}</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>zhang-practice</name>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>com.zhang</groupId>
         <artifactId>zhang-parent</artifactId>
-        <version>${zhang.version}</version>
+        <version>1.0.0</version>
     </parent>
 
     <properties>
@@ -29,17 +29,17 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
     <modules>
         <module>zhang-practice-elasticjob</module>
         <module>zhang-practice-java</module>
-        <module>zhang-spring-cloud-learning</module>
+        <!--<module>zhang-spring-cloud-learning</module>-->
         <module>zhang-practice-offer</module>
         <module>zhang-practice-netty</module>
         <module>zhang-practice-rocketmq</module>
@@ -47,6 +47,7 @@
         <module>zhang-practice-kafka</module>
         <module>zhang-practice-hadoop</module>
         <module>zhang-practice-pulsar</module>
+        <module>zhang-practice-mqtt</module>
     </modules>
 
 </project>

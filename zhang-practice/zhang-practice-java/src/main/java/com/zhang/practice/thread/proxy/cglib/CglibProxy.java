@@ -16,10 +16,9 @@ import java.lang.reflect.Method;
 public class CglibProxy implements MethodInterceptor {
 
     /**
-     *
-     * @param o  代理对象
-     * @param method 目标类中的方法
-     * @param objects 方法参数
+     * @param o           代理对象
+     * @param method      目标类中的方法
+     * @param objects     方法参数
      * @param methodProxy 代理方法
      * @return
      * @throws Throwable
@@ -29,14 +28,15 @@ public class CglibProxy implements MethodInterceptor {
         System.out.println("take off clothes...");
         System.out.println(o.getClass().getName());
         System.out.println(method.getDeclaringClass().getName());
-        Object invoke = methodProxy.invokeSuper(o, objects);
+        Object invoke = methodProxy.invoke(o, objects);
+//        Object invoke = methodProxy.invokeSuper(o, objects);
         System.out.println("put on clothes...");
         return invoke;
     }
 
     public static void main(String[] args) {
         // 代理类class文件存入本地磁盘方便我们反编译查看源码
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/zhangzihao/Documents/git/zhang-parent/zhang-practice/zhang-practice-java/target/classes/com/zhang/practice/thread/proxy");
+        //System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/zhangzihao/Documents/git/zhang-parent/zhang-practice/zhang-practice-java/target/classes/com/zhang/practice/thread/proxy");
         // 通过CGLIB动态代理获取代理对象的过程
         Enhancer enhancer = new Enhancer();
         // 设置enhancer对象的父类
@@ -44,7 +44,7 @@ public class CglibProxy implements MethodInterceptor {
         // 设置enhancer的回调对象
         enhancer.setCallback(new CglibProxy());
         // 创建代理对象
-        MyShowerImpl proxy= (MyShowerImpl)enhancer.create();
+        MyShowerImpl proxy = (MyShowerImpl) enhancer.create();
         // 通过代理对象调用目标方法
         proxy.bathing();
     }
