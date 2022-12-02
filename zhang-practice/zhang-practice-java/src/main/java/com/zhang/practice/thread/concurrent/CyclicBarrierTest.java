@@ -40,4 +40,9 @@ public class CyclicBarrierTest {
             }
         }
     }
+
+    @FunctionalInterface
+    interface test {
+        void test();
+    }
 }

@@ -27,6 +27,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.tuya.iot.framework</groupId>
+            <artifactId>tuya-spring-boot-starter</artifactId>
+            <version>1.0.1-R</version>
+        </dependency>
+
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>

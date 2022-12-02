@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.condition;
+package com.zhang.practice.thread.concurrent.condition;
 
 import java.util.Random;
 import java.util.concurrent.locks.Condition;

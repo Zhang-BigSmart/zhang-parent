@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class FunctionTest {
 
     public static void main(String[] args) {
-        Integer[] i = {1, 2, 4, 5};
+        /*Integer[] i = {1, 2, 4, 5};
         // Function<T,R>  R是返回类型
         Function<Integer[], ArrayList<Integer>> arrayListFunction = FunctionTest::arrToArrayList;
         arrayListFunction.apply(i).forEach(System.out::println);
@@ -21,7 +21,6 @@ public class FunctionTest {
         list.forEach(System.out::println);
 
         FunctionTest.arrToList(i, l -> new HashSet<>(Arrays.asList(l))).forEach(System.out::println);
-        FunctionTest.arrToList(i, l -> new LinkedList<>(Arrays.asList(l))).forEach(System.out::println);
 
         FunctionTest.arrToList(i, l -> new LinkedList<>(Arrays.asList(l))).forEach(System.out::println);
 
@@ -30,8 +29,26 @@ public class FunctionTest {
         System.out.println(FunctionTest.addition("hello", "wolrd", (a, b) -> a + " " + b));
 
         Function<String, String> function = Function.identity();
-        function.apply("hello wolrd");
+        function.apply("hello wolrd");*/
+
+        FunctionTest.test();
     }
+
+    public static void test() {
+        Function<Integer, Integer> function = i -> i * 10;
+        System.out.println(function.apply(2));
+
+        // 先执行 2*10 再执行 20+1
+        Function<Integer, Integer> com = i -> 1 + i;
+        System.out.println(com.compose(function).apply(2));
+
+        // 先执行 2+2 再执行 4*10
+        Function<Integer, Integer> andThen = i -> 2 + i;
+        System.out.println(andThen.andThen(function).apply(2));
+
+
+    }
+
 
     /**
      * 将数组转为ArrayList

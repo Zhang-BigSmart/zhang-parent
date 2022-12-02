@@ -1,4 +1,4 @@
-package com.zhang.practice.thread.forkjoin;
+package com.zhang.practice.thread.concurrent.forkjoin;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
