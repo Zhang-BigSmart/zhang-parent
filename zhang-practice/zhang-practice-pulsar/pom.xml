@@ -13,7 +13,7 @@
     <name>zhang-practice-pulsar</name>
 
     <properties>
-        <pulsar-client-version>2.7.1</pulsar-client-version>
+        <pulsar-client-version>2.7.5</pulsar-client-version>
     </properties>
 
     <dependencies>
